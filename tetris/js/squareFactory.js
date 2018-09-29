@@ -84,7 +84,6 @@ var Square3 = function(){
 Square3.prototype = Square.prototype;
 var SquareFactory = function(){}
 SquareFactory.prototype.make = function(index , dir){
-	console.log(index,dir)
 	var s;
 	switch(index){
 		case 1:

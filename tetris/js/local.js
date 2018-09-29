@@ -1,4 +1,5 @@
 var Local = function(){
+	var startTime = new Date().getTime();
 	//游戏对象
 	var game ;
 	//时间间隔
@@ -26,21 +27,27 @@ var Local = function(){
 	}
 	//移动
 	var move = function(){
+		
 		if(!game.down()){
 			game.fixed();
-			game.checkClear();
+			num = game.checkClear();
+			
 			var gameOver = game.checkGameOver();
 			if(gameOver){
 				stop();
 			}
 			game.performNext(generateType() , generateDir());
 		}
+		var endTime = new Date().getTime();
+		document.getElementById("time").innerText = (endTime-startTime)/1000;
 	};
-	//随机说呢过程一个方块种类
+	//随机下过程一个方块种类
 	var generateType = function(){
 		return Math.ceil(Math.random()*3)-1;
 	}
+	//随机下一过程方块旋转角度
 	var generateDir = function(){
+		
 		return Math.ceil(Math.random()*4)-1;
 	}
 	//开始

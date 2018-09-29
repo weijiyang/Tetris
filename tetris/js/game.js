@@ -192,8 +192,10 @@ var checkClear = function(){
 				gameData[0][n] = 0;
 			}
 			i++;
+			document.getElementById("score").innerText = parseInt(document.getElementById("score").innerText) + gameData[0].length;
 		}
 	}
+	return isClear?gameData[0].length:0;
 }
 //检查游戏结束
 var checkGameOver = function(){
